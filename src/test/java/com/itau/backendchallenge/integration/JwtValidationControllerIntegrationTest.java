@@ -16,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class JwtValidationControllerIntegrationTest {
 
+    public static final String HTTP_LOCALHOST = "http://localhost:";
+    public static final String V1_JWT_VALIDATE = "/v1/jwt/validate";
     @LocalServerPort
     private int port;
 
@@ -26,7 +28,7 @@ public class JwtValidationControllerIntegrationTest {
     @DisplayName("Verdadeiro - Validações ok")
     public void testDecodeTokenEndpointCase1() {
         String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJTZWVkIjoiNzg0MSIsIk5hbWUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05sIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg";
-        String url = "http://localhost:" + port + "/decodeToken";
+        String url = HTTP_LOCALHOST + port + V1_JWT_VALIDATE;
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", token);
@@ -42,7 +44,7 @@ public class JwtValidationControllerIntegrationTest {
     @DisplayName("Falso - JWT invalido")
     public void testDecodeTokenEndpointCase2() {
         String token = "Bearer eyJhbGciOiJzI1NiJ9.dfsdfsfryJSr2xrIjoiQWRtaW4iLCJTZrkIjoiNzg0MSIsIk5hbrUiOiJUb25pbmhvIEFyYXVqbyJ9.QY05fsdfsIjtrcJnP533kQNk8QXcaleJ1Q01jWY_ZzIZuAg";
-        String url = "http://localhost:" + port + "/decodeToken";
+        String url = HTTP_LOCALHOST + port + V1_JWT_VALIDATE;
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", token);
@@ -58,7 +60,7 @@ public class JwtValidationControllerIntegrationTest {
     @DisplayName("Falso - A Claim Name possui caracter de números")
     public void testDecodeTokenEndpointCase3() {
         String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiRXh0ZXJuYWwiLCJTZWVkIjoiODgwMzciLCJOYW1lIjoiTTRyaWEgT2xpdmlhIn0.6YD73XWZYQSSMDf6H0i3-kylz1-TY_Yt6h1cV2Ku-Qs";
-        String url = "http://localhost:" + port + "/decodeToken";
+        String url = HTTP_LOCALHOST + port + V1_JWT_VALIDATE;
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", token);
@@ -74,7 +76,7 @@ public class JwtValidationControllerIntegrationTest {
     @DisplayName("Falso - Foi encontrado mais de 3 claims.")
     public void testDecodeTokenEndpointCase4() {
         String token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiTWVtYmVyIiwiT3JnIjoiQlIiLCJTZWVkIjoiMTQ2MjciLCJOYW1lIjoiVmFsZGlyIEFyYW5oYSJ9.cmrXV_Flm5mfdpfNUVopY_I2zeJUy4EZ4i3Fea98zvY";
-        String url = "http://localhost:" + port + "/decodeToken";
+        String url = HTTP_LOCALHOST + port + V1_JWT_VALIDATE;
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", token);

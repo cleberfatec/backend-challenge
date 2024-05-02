@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: backend-challenge
+
+  #Actuator - endpoints customizados
+management:
+  endpoints:
+    enable-by-default: false
+    web:
+      exposure:
+        include: 'health,prometheus'
+  endpoint:
+    shutdown:
+      enabled: true # Fornece endpoint para desligar a aplicação
+    health:
+      enabled: true
+      show-details: always
+      metrics:
+        enabled: true
+      prometheus:
+        enabled: true

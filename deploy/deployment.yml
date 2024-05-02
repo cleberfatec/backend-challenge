@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend-challenge-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: backend-challenge
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: backend-challenge
-          image: cleberfatec/backend-challenge:latest
+          image: cleberfatec/backend-challenge:1.0
           ports:
             - containerPort: 8080
