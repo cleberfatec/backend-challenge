@@ -10,7 +10,8 @@ A primeira coisa é executar:
 mvn clean install
 ```
 
-Agora escolhe um dos itens abaixo:
+Agora escolha um dos itens abaixo:
+
 - 
 - Executar o arquivo BackendChallengeApplication.java
 ou
@@ -45,6 +46,7 @@ kubectl get pods
 curl --location 'http://localhost:80/v1/jwt/validate' --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiTWVtYmVyIiwiT3JnIjoiQlIiLCJTZWVkIjoiMTQ2MjciLCJOYW1lIjoiVmFsZGlyIEFyYW5oYSJ9.cmrXV_Flm5mfdpfNUVopY_I2zeJUy4EZ4i3Fea98zvY' --header 'Cookie: JSESSIONID=801E01A05EDC87D93DBD455D61F3922F'
 ```
 
+![conteinerização](diagram/backend-challenge.drawio.png)
 
 ### Docker
 #### 1) Para contruir a imagem
