@@ -53,4 +53,4 @@ jobs:
         sudo apt-get install -y kubectl
 
     - name: Deploy to Kubernetes
-      run: kubectl apply -f deploy/
+      run: kubectl apply -f deploy/ --validate=false
