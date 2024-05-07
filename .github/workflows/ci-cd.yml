@@ -52,5 +52,11 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y kubectl
 
+    - name: Configure kubectl
+      run: |
+        echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.yaml
+        mkdir -p ~/.kube
+        mv kubeconfig.yaml ~/.kube/config
+
     - name: Deploy to Kubernetes
       run: kubectl apply -f deploy/ --validate=false
