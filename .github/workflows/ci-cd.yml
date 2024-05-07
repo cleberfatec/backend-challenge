@@ -1,4 +1,4 @@
-name: Docker and Kubernetes CI/CD
+name: Continuos Integration Continuous Delivery
 
 on:
   push:
